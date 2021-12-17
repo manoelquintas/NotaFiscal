@@ -71,7 +71,7 @@ public class Inicio {
 
         driver.findElement(By.cssSelector("[value=ENTRAR]")).click();
 
-
+        driver.get("https://nfse.recife.pe.gov.br/contribuinte/nota.aspx");
 
 
     }
