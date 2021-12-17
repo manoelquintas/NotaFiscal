@@ -11,11 +11,19 @@ public class NotaFiscalApplication {
 		SpringApplication.run(NotaFiscalApplication.class, args);
 	}
 
-	@Bean
+	//@Bean
 	public void inicioPrograma()
 	{
 		Inicio inicio = new Inicio();
 		inicio.start();
+	}
+
+	@Bean
+	public void inicioProgramagoogle()
+	{
+		ApiGoogleSheets apiGoogleSheets = new ApiGoogleSheets();
+		apiGoogleSheets.start();
 
 	}
+
 }
