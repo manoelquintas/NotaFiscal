@@ -73,11 +73,13 @@ public class Inicio extends ApiGoogleSheets {
 
         driver.get("https://nfse.recife.pe.gov.br/contribuinte/nota.aspx");
 
-        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_tbCPFCNPJTomador]")).sendKeys("129.197.814-30");
+        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_tbCPFCNPJTomador]")).sendKeys(Cpf);
 
         driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_btAvancar]")).click();
 
-        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_tbCEP]")).sendKeys("52120300");
+        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_tbCEP]")).sendKeys(Cep);
+
+        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_btCEP]")).click();
 
         driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_btCEP]")).click();
     }

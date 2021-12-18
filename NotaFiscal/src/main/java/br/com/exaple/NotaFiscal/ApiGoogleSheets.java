@@ -16,10 +16,13 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class ApiGoogleSheets {
+public class ApiGoogleSheets extends Cliente {
+
+
 
 
 public void start() {
+    Cliente Cliente = new Cliente();
  String tabela = "12pkeH80pvcG3Gf568iqYXTfDoWhkwNtNInSIXDIeXjU";
  String sheetsName = "teste";
  String referencia = "A2:J15";
@@ -29,10 +32,9 @@ public void start() {
             String Cpf = dado[0];
             String Nome = dado[1];
             String Cep = dado[2];
-            //String numeroDaCasa[5];
-            System.out.println(Nome);
-            System.out.println(Cpf);
-            System.out.println(Cep);
+            String numeroDaCasa = dado[3];
+            String Email = dado[4];
+            String telefoneDeContato = dado[5];
 
         }
 
