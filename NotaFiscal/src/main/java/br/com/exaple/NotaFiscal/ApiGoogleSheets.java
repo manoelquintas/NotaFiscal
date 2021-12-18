@@ -22,15 +22,19 @@ public class ApiGoogleSheets {
 public void start() {
  String tabela = "12pkeH80pvcG3Gf568iqYXTfDoWhkwNtNInSIXDIeXjU";
  String sheetsName = "teste";
- String referencia = "A1:J15";
+ String referencia = "A2:J15";
     try {
         String[][] data = getData(tabela, sheetsName, referencia);
         for (String dado [] :data) {
-            String a = dado[0];
-            System.out.println(a);
+            String Cpf = dado[0];
+            String Nome = dado[1];
+            String Cep = dado[2];
+            //String numeroDaCasa[5];
+            System.out.println(Nome);
+            System.out.println(Cpf);
+            System.out.println(Cep);
+
         }
-
-
 
     } catch (Exception e) {
         e.printStackTrace();
@@ -39,7 +43,7 @@ public void start() {
 }
 
         private static Credential authorize () throws Exception {
-            String credentialLocation = "C:\\Users\\manoe\\Documents\\projeto\\crenciaisSheets.json";
+            String credentialLocation = "C:\\Users\\pedro\\Documents\\Projeto\\crenciaisSheets.json";
 
             GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JacksonFactory.getDefaultInstance(), new FileReader(credentialLocation));
 
