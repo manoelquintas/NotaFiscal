@@ -1,6 +1,6 @@
-package br.com.exaple.NotaFiscal.utils;
+package br.com.exaple.NotaFiscal;
 
-public class Cliente {
+public class Cliente extends ApiGoogleSheets {
 
     String Email;
     String Cep;

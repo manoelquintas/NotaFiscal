@@ -81,8 +81,10 @@ public class Inicio extends ApiGoogleSheets {
 
         driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_btCEP]")).click();
 
-        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_btCEP]")).click();
+        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_ctrlServicos_tbAliquota]")).clear( );
 
-        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_ctrlServicos_tbAliquota]")).sendKeys("2.00");
+        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_ctrlServicos_tbAliquota]")).sendKeys("2,00");
+
+
     }
 }
