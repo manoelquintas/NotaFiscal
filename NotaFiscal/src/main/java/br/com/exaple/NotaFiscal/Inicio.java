@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Service
-public class Inicio extends ApiGoogleSheets {
+public class Inicio  {
 
 
     public void start() {
@@ -27,13 +27,11 @@ public class Inicio extends ApiGoogleSheets {
         WebDriver driver = new ChromeDriver();
         driver.get("https://nfse.recife.pe.gov.br/senhaweb/login.aspx");
 
-        driver.findElement(By.id("aviso-importante-fechar")).click();
+        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_tbCpfCnpj]")).sendKeys("28.578.895/0001-65");
 
-        driver.findElement(By.cssSelector("[name$=CpfCnpj]")).sendKeys("28.578.895/0001-65");
+        driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_tbSenha]")).sendKeys("28578895");
 
-        driver.findElement(By.cssSelector("[name$=tbSenha]")).sendKeys("28578895");
-
-        String src = driver.findElement(By.cssSelector("[src*=CaptchaImage]")).getAttribute("src");
+        String name = driver.findElement(By.cssSelector("[name=ctl00$cphCabMenu$ccCodigo$ccCodigo]")).getAttribute("name");
 
         Set<Cookie> cookies = driver.manage().getCookies();
         Map<String, String> mapCookies = new HashMap<String, String>();
@@ -41,11 +39,11 @@ public class Inicio extends ApiGoogleSheets {
             mapCookies.put(cookie.getName(), cookie.getValue());
         }
 
-        System.out.println(src);
-        String captcha="";
+        System.out.println(name);
+        String captcha="Users\\pedro\\Documents\\Projeto";
         try {
             //Connection connection = Jsoup.connect(src);//.cookies(mapCookies);
-            Connection.Response response =  Jsoup.connect(src)
+            Connection.Response response =  Jsoup.connect(name)
                     .method(Connection.Method.GET)
                     .cookies(mapCookies)
                     .referrer("https://nfse.recife.pe.gov.br/senhaweb/login.aspx")
@@ -67,7 +65,7 @@ public class Inicio extends ApiGoogleSheets {
             e.printStackTrace();
         }
 
-        driver.findElement(By.cssSelector("[name$=ccCodigo]")).sendKeys(captcha);
+        driver.findElement(By.cssSelector("[name=ctl00$cphCabMenu$ccCodigo$ccCodigo]")).sendKeys(captcha);
 
         driver.findElement(By.cssSelector("[value=ENTRAR]")).click();
 
@@ -84,6 +82,7 @@ public class Inicio extends ApiGoogleSheets {
         driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_ctrlServicos_tbAliquota]")).clear( );
 
         driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_ctrlServicos_tbAliquota]")).sendKeys("2,00");
+
 
 
     }
