@@ -31,7 +31,7 @@ public class Inicio  {
 
         driver.findElement(By.cssSelector("[id=ctl00_cphCabMenu_tbSenha]")).sendKeys("28578895");
 
-        String name = driver.findElement(By.cssSelector("[name=ctl00$cphCabMenu$ccCodigo$ccCodigo]")).getAttribute("name");
+        String src = driver.findElement(By.cssSelector("[src*=CaptchaImage]")).getAttribute("src");
 
         Set<Cookie> cookies = driver.manage().getCookies();
         Map<String, String> mapCookies = new HashMap<String, String>();
@@ -39,11 +39,11 @@ public class Inicio  {
             mapCookies.put(cookie.getName(), cookie.getValue());
         }
 
-        System.out.println(name);
+        System.out.println(src);
         String captcha="Users\\pedro\\Documents\\Projeto";
         try {
             //Connection connection = Jsoup.connect(src);//.cookies(mapCookies);
-            Connection.Response response =  Jsoup.connect(name)
+            Connection.Response response =  Jsoup.connect(src)
                     .method(Connection.Method.GET)
                     .cookies(mapCookies)
                     .referrer("https://nfse.recife.pe.gov.br/senhaweb/login.aspx")
